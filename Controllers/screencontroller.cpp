@@ -1,15 +1,14 @@
 #include "screencontroller.h"
 
 ScreenController::ScreenController(QObject *parent)
-    : QObject{parent},
-      m_screenType(NONE)
+    : QObject{parent}
 {
     m_title = "";
 }
 
 ScreenController::~ScreenController()
 {
-    destroyed();
+    emit destroyed();
 }
 
 void ScreenController::setTitle(const QString &newTitle)
@@ -25,18 +24,6 @@ const QString &ScreenController::getTitle() const
     return m_title;
 }
 
-const ScreenController::MenuScreenType &ScreenController::screenType() const
-{
-    return m_screenType;
-}
-
-void ScreenController::setScreenType(const MenuScreenType &newScreenType)
-{
-    if (m_screenType == newScreenType)
-        return;
-    m_screenType = newScreenType;
-    emit screenTypeChanged();
-}
 
 int ScreenController::favRowCount() {
     return 0;
