@@ -24,7 +24,7 @@ public:
 
 public slots:
     void setTitle(const QString &newTitle);
-    int favRowCount() const;
+    int favRowCount();
 
 signals:
     void titleChanged();

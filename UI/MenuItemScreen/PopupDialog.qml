@@ -1,5 +1,5 @@
 import QtQuick 2.0
-
+import Bosch.Prenium 1.0
 Item {
     id: popupDialog
     property string message: ""
@@ -11,7 +11,7 @@ Item {
         height: popupDialog.height - 100
 
         Image {
-            source: "qrc:/UI/assets/close.png"
+            source: imageSource.CloseButton
             width: 50
             height: 50
             anchors {
@@ -33,13 +33,6 @@ Item {
             anchors.centerIn: dialog
             font.pixelSize: 30
             wrapMode: Text.WordWrap
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    console.log("popup width:" + popupDialog.width)
-                    console.log("popup heith:" + popupDialog.height)
-                }
-            }
         }
     }
 }

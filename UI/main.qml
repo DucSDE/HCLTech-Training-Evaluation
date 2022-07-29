@@ -2,7 +2,7 @@ import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 2.15
-import Bosch.Prenium.Controller 1.0
+import Bosch.Prenium 1.0
 
 ApplicationWindow {
     id: root

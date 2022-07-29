@@ -2,8 +2,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 2.15
-import Bosch.Prenium.Controller 1.0
-//import Bosch.Prenium.Model 1.0
+import Bosch.Prenium 1.0
 
 Rectangle {
     id: menuScreen
@@ -37,55 +36,6 @@ Rectangle {
             highlightRangeMode: ListView.StrictlyEnforceRange
             delegate: menuListDelegate
             clip: true
-        }
-
-    }
-
-    //Dummy Model
-    ListModel {
-        id: menuModelDummy
-
-        ListElement {
-            imageURL: "qrc:/UI/assets/type_of_heating.png"
-            menuTitle: "Types of heating"
-            menuDes: "Manual preparation"
-            src: "qrc:/UI/MenuItemScreen/Menu1.qml"
-        }
-        ListElement {
-            imageURL: "qrc:/UI/assets/oven.png"
-            menuTitle: "Microware"
-            menuDes: "Quick preparation"
-            src: "qrc:/UI/MenuItemScreen/Menu2.qml"
-        }
-        ListElement {
-            imageURL: "qrc:/UI/assets/steam.png"
-            menuTitle: "Steam"
-            menuDes: "Gentle preparation"
-            src: "qrc:/UI/MenuItemScreen/Menu3.qml"
-        }
-        ListElement {
-            imageURL: "qrc:/UI/assets/meal.png"
-            menuTitle: "Meals"
-            menuDes: "Assist programes"
-            src: "qrc:/UI/MenuItemScreen/Menu4.qml"
-        }
-        ListElement {
-            imageURL: "qrc:/UI/assets/favourite.png"
-            menuTitle: "Favorite"
-            menuDes: "My watchlist"
-            src: "qrc:/UI/MenuItemScreen/Menu5.qml"
-        }
-        ListElement {
-            imageURL: "qrc:/UI/assets/cleaning.png"
-            menuTitle: "Cleaning"
-            menuDes: "Deep cleaning"
-            src: "qrc:/UI/MenuItemScreen/Menu6.qml"
-        }
-        ListElement {
-            imageURL: "qrc:/UI/assets/settings.png"
-            menuTitle: "Basic Setting"
-            menuDes: "Basic setting"
-            src: "qrc:/UI/MenuItemScreen/Menu7.qml"
         }
 
     }
@@ -210,10 +160,10 @@ Rectangle {
         }
     }
 
-    Keys.onPressed: (event)=> {
-                        if (event.key === Qt.Key_F1) {
-                            console.log("F1 pressed on Menu screen");
-                            event.accepted = true;
-                        }
-                    }
+    Keys.onPressed:
+        (event)=> {
+            if (event.key === Qt.Key_F1) {
+                event.accepted = true;
+            }
+        }
 }

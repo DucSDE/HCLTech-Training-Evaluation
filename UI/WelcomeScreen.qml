@@ -18,14 +18,14 @@ Item {
         Image {
             id: mainImage
             anchors.centerIn: mainScreen
-            source: "qrc:/UI/assets/main_background.png"
+            source: imageSource.MainBackground
 
             Item {
                 anchors.centerIn: parent
 
                 Text {
                     id: mainScreenText
-                    text: qsTr("MAIN MENU")
+                    text: textControl.WelcomeTitle
                     font.pixelSize: 20
                     color: "white"
                     anchors.centerIn: parent
@@ -33,7 +33,7 @@ Item {
                 }
                 Text {
                     id: subMainScreenText
-                    text: qsTr("TEMPING DISHES TO ENJOY")
+                    text: textControl.WelcomeSubTitle
                     font.pixelSize: 18
                     color: "white"
                     anchors.top: mainScreenText.bottom

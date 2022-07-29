@@ -1,16 +1,24 @@
 import QtQuick 2.0
-import Bosch.Prenium.Controller 1.0
+import Bosch.Prenium 1.0
 
 Rectangle {
     id: statusBar
     color : "black"
-    //    color:"transparent"
     height: 50
     width: parent.width
 
+    function setTitleForStatusBar(){
+        if(screenController.title === "")
+            return ""
+        else
+        {
+            return TitleProvider.setTitle(screenController.title)
+        }
+    }
+
     Text {
         id: titleScreen
-        text: screenController.title
+        text: setTitleForStatusBar()
         font.pixelSize: 38
         width: 100
         color: "lightGray"
@@ -36,7 +44,7 @@ Rectangle {
             id: lockScreenStatus
             height: 25
             width: 25
-            source: "qrc:/UI/assets/lock_white.png"
+            source: imageSource.Lock
             anchors {
                 right: wifiSignal.left
                 rightMargin: 10
@@ -50,7 +58,7 @@ Rectangle {
             id: wifiSignal
             height: 25
             width: 25
-            source: "qrc:/UI/assets/no_wifi_white.png"
+            source: imageSource.NoWifi
             anchors {
                 right: seperator.left
                 rightMargin: 10
@@ -78,7 +86,7 @@ Rectangle {
             id: menuOptions
             height: 25
             width: 25
-            source: "qrc:/UI/assets/options.png"
+            source: imageSource.Options
             anchors {
                 right: parent.right
                 rightMargin: 10

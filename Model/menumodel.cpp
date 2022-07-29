@@ -5,7 +5,6 @@ void DummyData();
 MenuModel::MenuModel(QObject *parent) :
     QAbstractListModel{parent}
 {
-    DummyData();
 }
 
 MenuModel::~MenuModel()
@@ -73,21 +72,4 @@ QHash<int, QByteArray> MenuModel::roleNames() const
     roles[SourceRole] = "src";
 
     return roles;
-}
-
-void DummyData(){
-    MenuItem item1("qrc:/UI/assets/type_of_heating.png", "Types of heating" ,"Manual preparation", "qrc:/UI/MenuItemScreen/Menu1.qml");
-    MenuItem item2("qrc:/UI/assets/oven.png","Microware","Quick preparation", "qrc:/UI/MenuItemScreen/Menu3.qml");
-    MenuItem item3("qrc:/UI/assets/steam.png","Steam","Gentle preparation", "qrc:/UI/MenuItemScreen/Menu3.qml");
-    MenuItem item4("qrc:/UI/assets/meal.png","Meals","Assist programes", "qrc:/UI/MenuItemScreen/Menu4.qml");
-    MenuItem item5("qrc:/UI/assets/favourite.png","Favorite","My watchlist", "qrc:/UI/MenuItemScreen/Menu5.qml");
-    MenuItem item6("qrc:/UI/assets/cleaning.png","Cleaning","Deep cleaning", "qrc:/UI/MenuItemScreen/Menu6.qml");
-    MenuItem item7("qrc:/UI/assets/oven.png","Basic Setting","Basic setting", "qrc:/UI/MenuItemScreen/Menu7.qml");
-//    m_MenuModelList.append(item1);
-//    m_MenuModelList.append(item2);
-//    m_MenuModelList.append(item3);
-//    m_MenuModelList.append(item4);
-//    m_MenuModelList.append(item5);
-//    m_MenuModelList.append(item6);
-//    m_MenuModelList.append(item7);
 }

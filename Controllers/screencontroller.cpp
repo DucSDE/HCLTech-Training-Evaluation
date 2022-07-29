@@ -38,8 +38,10 @@ void ScreenController::setScreenType(const MenuScreenType &newScreenType)
     emit screenTypeChanged();
 }
 
-int ScreenController::favRowCount() const {
+int ScreenController::favRowCount() {
     return 0;
 }
+
+
 
 

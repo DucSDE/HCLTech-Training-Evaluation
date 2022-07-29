@@ -25,7 +25,7 @@ Item {
                 centerIn: parent
             }
 
-            text:  "Screen 2"
+            text:  textControl.Menu2
             font.pixelSize: 100
             color: "white"
         }

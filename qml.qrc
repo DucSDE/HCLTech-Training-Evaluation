@@ -23,7 +23,6 @@
         <file>UI/assets/steam.png</file>
         <file>UI/assets/type_of_heating.png</file>
         <file>UI/assets/options.png</file>
-        <file>UI/MenuItem.qml</file>
         <file>UI/MenuItemScreen/Menu1.qml</file>
         <file>UI/MenuItemScreen/Menu2.qml</file>
         <file>UI/MenuItemScreen/Menu3.qml</file>
@@ -35,6 +34,7 @@
         <file>UI/MenuItemScreen/BackButton.qml</file>
         <file>UI/MenuItemScreen/PopupDialog.qml</file>
         <file>UI/assets/close.png</file>
+        <file>UI/SetTitle.qml</file>
     </qresource>
     <qresource prefix="/UI/MenuItemScreen"/>
 </RCC>

@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.15
-import Bosch.Prenium.Controller 1.0
+import Bosch.Prenium 1.0
 
 Item {
 
@@ -31,7 +31,7 @@ Item {
                     centerIn: screen
                 }
 
-                text:  "Favourites Screen"
+                text:  textControl.Menu5
                 font.pixelSize: 100
                 color: "white"
             }
@@ -44,7 +44,7 @@ Item {
         anchors.fill: parent
         width: parent.width
         height: parent.height
-        message: qsTr("You can save your preferred oven settings as favourites by selecting the favourites symbol in the types of heating or dishes. Alternatively, you can also create favourites in the Home Connect app and save these on the appliance.")
+        message: textControl.favPopupText
     }
 }
 

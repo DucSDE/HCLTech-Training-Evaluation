@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.15
+import Bosch.Prenium 1.0
 
 Item {
     id: backButton
@@ -14,7 +15,7 @@ Item {
         anchors {
             centerIn: parent
         }
-        source: "qrc:/UI/assets/back.png"
+        source: imageSource["BackButton"]
     }
     MouseArea {
         anchors.fill: parent
