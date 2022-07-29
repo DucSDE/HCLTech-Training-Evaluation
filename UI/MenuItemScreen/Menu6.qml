@@ -20,14 +20,14 @@ Item {
         }
 
         Text {
-
+            width: parent.width
             anchors {
                 centerIn: parent
             }
-
             text:  textControl.Menu6
             font.pixelSize: 100
             color: "white"
+            wrapMode: Text.WordWrap
         }
     }
 }

@@ -20,7 +20,7 @@ Item {
         }
 
         Text {
-
+            width: parent.width
             anchors {
                 centerIn: parent
             }
@@ -28,6 +28,7 @@ Item {
             text:  textControl.Menu3
             font.pixelSize: 100
             color: "white"
+            wrapMode: Text.WordWrap
         }
     }
 }

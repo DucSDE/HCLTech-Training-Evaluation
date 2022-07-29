@@ -20,7 +20,7 @@ Item {
         }
 
         Text {
-
+            width: parent.width
             anchors {
                 centerIn: parent
             }

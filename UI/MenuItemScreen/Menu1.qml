@@ -19,7 +19,8 @@ Item {
         }
 
         Text {
-
+            width: parent.width
+            wrapMode: Text.WordWrap
             anchors {
                 centerIn: parent
             }

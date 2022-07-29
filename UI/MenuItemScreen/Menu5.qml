@@ -26,14 +26,14 @@ Item {
             }
 
             Text {
-
+                width: parent.width
                 anchors {
                     centerIn: screen
                 }
-
                 text:  textControl.Menu5
                 font.pixelSize: 100
                 color: "white"
+                wrapMode: Text.WordWrap
             }
         }
     }
