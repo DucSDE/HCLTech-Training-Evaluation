@@ -4,9 +4,9 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 2.15
 import Bosch.Prenium 1.0
 
-ApplicationWindow {
+Window {
     id: root
-    width: 1024
+    width: 1080
     height: 680
     minimumWidth: 720
     minimumHeight: 680
@@ -23,11 +23,13 @@ ApplicationWindow {
         anchors {
             top:  parent.top
         }
+        menuPopupVisible: false
     }
 
     StackView {
         id: stackView
         visible: true
+        z: 0
         anchors {
             left: root.left
             right: root.right
@@ -60,3 +62,9 @@ ApplicationWindow {
             }
     }
 }
+
+/*##^##
+Designer {
+    D{i:0;formeditorZoom:0.33;height:680;width:1024}
+}
+##^##*/

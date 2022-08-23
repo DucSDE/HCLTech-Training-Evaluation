@@ -31,10 +31,11 @@
         <file>UI/MenuItemScreen/Menu6.qml</file>
         <file>UI/MenuItemScreen/Menu7.qml</file>
         <file>UI/assets/back.png</file>
-        <file>UI/MenuItemScreen/BackButton.qml</file>
         <file>UI/MenuItemScreen/PopupDialog.qml</file>
         <file>UI/assets/close.png</file>
         <file>UI/SetTitle.qml</file>
         <file>UI/CustomComponent/MenuPopup.qml</file>
+        <file>UI/assets/info.png</file>
+        <file>UI/CustomComponent/BackButton.qml</file>
     </qresource>
 </RCC>

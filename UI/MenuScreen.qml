@@ -155,11 +155,6 @@ Rectangle {
         }
         color: "transparent"
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: getH()
-        }
-
         PageIndicator {
             id: indicator
             currentIndex: {

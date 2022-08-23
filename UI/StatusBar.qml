@@ -1,12 +1,15 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import Bosch.Prenium 1.0
+import "CustomComponent"
 
 Rectangle {
     id: statusBar
     color : "black"
     height: 50
     width: parent.width
+    z: 100
+    property alias menuPopupVisible: menuPopup.visible
 
     function setTitleForStatusBar(){
         if(screenController.title === "")
@@ -96,17 +99,19 @@ Rectangle {
             smooth: true
             MouseArea {
                 anchors.fill: parent
-                onClicked: menu.popup()
-                acceptedButtons: Qt.LeftButton | Qt.RightButton
+                onClicked: menuPopupVisible ? menuPopupVisible = false : menuPopupVisible = true
             }
         }
 
     }
-    Menu {
-        id: menu
-
-        MenuItem { text: "Cut" }
-        MenuItem { text: "Copy" }
-        MenuItem { text: "Paste" }
+    MenuPopup {
+        id: menuPopup
+        visible: menuPopupVisible
+        anchors {
+            top: statusBar.bottom
+            topMargin: 10
+            right: statusBar.right
+            rightMargin: 10
+        }
     }
 }
