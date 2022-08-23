@@ -35,6 +35,6 @@
         <file>UI/MenuItemScreen/PopupDialog.qml</file>
         <file>UI/assets/close.png</file>
         <file>UI/SetTitle.qml</file>
+        <file>UI/CustomComponent/MenuPopup.qml</file>
     </qresource>
-    <qresource prefix="/UI/MenuItemScreen"/>
 </RCC>

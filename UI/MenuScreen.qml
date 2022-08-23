@@ -21,50 +21,82 @@ Rectangle {
             horizontalCenter: menuScreen.horizontalCenter
         }
 
-        ListView {
-            id: listView
-            width: parent.width
-            height: 230
-            anchors {
-                centerIn: contentFrame
-                horizontalCenter: contentFrame.horizontalCenter
-                verticalCenter: contentFrame.verticalCenter
-            }
+        PathView {
+            id: pathView
+            width: contentFrame.width
+            height: 400
+            anchors.verticalCenter: contentFrame.verticalCenter
 
-            orientation: ListView.Horizontal
             model: menuModel
-            highlightRangeMode: ListView.StrictlyEnforceRange
             delegate: menuListDelegate
-            clip: true
-        }
+            pathItemCount: 3
+            path: Path {
 
+                startX: 0
+                startY: pathView.height/2
+
+                PathLine {
+                    id: path1
+                    x: -150
+                    y: pathView.height/2
+
+                }
+                PathLine {
+                    id: path2
+                    x: pathView.width/2
+                    y: pathView.height/2
+
+                }
+                PathLine {
+                    id: path3
+                    x: pathView.width *2 - 150
+                    y: pathView.height/2
+
+                }
+
+            }
+            SequentialAnimation{
+                id:listViewAnimation
+                loops:Animation.Infinite
+            }
+            onCurrentIndexChanged: {
+                listViewAnimation.restart()
+            }
+            focus: true
+            Component.onCompleted: {
+                positionViewAtIndex(pathView.count - 1, PathView.Beginning)
+            }
+        }
     }
 
     Component {
         id: menuListDelegate
+
         Item {
-            width: listView.width
-            height: 210
+            width: 850
+            height: 250
 
             Image {
                 id: itemImage
-                width: 200
-                height: 200
+                width: 250
+                height: 250
                 source: imageURL
-
                 anchors {
                     left: parent.left
                     leftMargin: 50
+                    verticalCenter: parent.verticalCenter
                 }
             }
 
             Rectangle {
                 id: itemText
-                height: itemImage.height
+                width: pathView.currentIndex ? 600 : 0
+                height: parent.height
                 color: "transparent"
+
                 anchors {
                     left: itemImage.right
-                    leftMargin: 20
+                    leftMargin: 50
                     right: parent.right
                     rightMargin: 20
                     verticalCenter: itemImage.verticalCenter
@@ -72,7 +104,7 @@ Rectangle {
 
                 Text {
                     id: itemTitle
-                    width: itemText.width
+                    width: itemText.width - 150
                     height: itemText.height/2
 
                     anchors {
@@ -118,7 +150,6 @@ Rectangle {
         width: menuScreen.width
         height: 60
         anchors {
-            top: contentFrame.bottom
             bottom: menuScreen.bottom
             horizontalCenter: menuScreen.horizontalCenter
         }
@@ -131,8 +162,15 @@ Rectangle {
 
         PageIndicator {
             id: indicator
-            currentIndex: listView.currentIndex
-            count: listView.count
+            currentIndex: {
+                if(pathView.currentIndex === (pathView.count - 1) )
+                    return (pathView.currentIndex - 6)
+                 else
+                    return (pathView.currentIndex + 1)
+            }
+
+            count: pathView.count
+
             interactive: true
             anchors {
                 centerIn: footer
@@ -146,11 +184,11 @@ Rectangle {
                 implicitWidth: 15
                 implicitHeight: 15
 
-                radius: width
-                color: "#eb7734"
+                radius: width/2
 
-                opacity: index === listView.currentIndex ? 0.95 : pressed ? 0.7 : 0.45
-
+                required property int index
+                color: index === indicator.currentIndex ? "#eb7734" : "gray"
+                opacity: index === indicator.currentIndex ? 0.95 : 0.45
                 Behavior on opacity {
                     OpacityAnimator {
                         duration: 50
@@ -167,3 +205,10 @@ Rectangle {
             }
         }
 }
+
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;formeditorZoom:0.33;height:680;width:1080}
+}
+##^##*/

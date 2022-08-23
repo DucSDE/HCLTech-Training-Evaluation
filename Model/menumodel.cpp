@@ -9,7 +9,7 @@ MenuModel::MenuModel(QObject *parent) :
 
 MenuModel::~MenuModel()
 {
-    destroyed();
+    QObject::destroyed();
 }
 
 void MenuModel::append(const MenuItem &item)
@@ -19,6 +19,7 @@ void MenuModel::append(const MenuItem &item)
 
 int MenuModel::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent);
     return m_MenuModelList.length();
 }
 

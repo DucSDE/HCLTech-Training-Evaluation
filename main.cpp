@@ -18,8 +18,9 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
     QGuiApplication app(argc, argv);
+    app.primaryScreen()->availableGeometry();
+//    app.primaryScreen()->geometry().adjust(0,0,640,480);
     QQuickWindow::setSceneGraphBackend("software");
-
     //register header line
     qmlRegisterType <ScreenController>  ("Bosch.Prenium",1,0,"ScreenController");
     qmlRegisterSingletonType(QUrl("qrc:/UI/SetTitle.qml"),"Bosch.Prenium",1,0,"TitleProvider");
@@ -41,6 +42,7 @@ int main(int argc, char *argv[])
     //root context
     QQmlContext *rootContext = engine.rootContext();
     //send property to context
+    rootContext->setContextProperty("AppName","Bosch Prenium");
     rootContext->setContextProperty("menuModel",&menuModel);
     rootContext->setContextProperty("imageSource",&imageSource);
     rootContext->setContextProperty("textControl",&textControl);
@@ -58,12 +60,12 @@ int main(int argc, char *argv[])
 
 void generateMenuModel(MenuModel &menuModel){
     MenuItem item1("qrc:/UI/assets/type_of_heating.png", "Types of heating" ,"Manual preparation", "qrc:/UI/MenuItemScreen/Menu1.qml");
-    MenuItem item2("qrc:/UI/assets/oven.png","Microware","Quick preparation", "qrc:/UI/MenuItemScreen/Menu3.qml");
+    MenuItem item2("qrc:/UI/assets/oven.png","Microware","Quick preparation", "qrc:/UI/MenuItemScreen/Menu2.qml");
     MenuItem item3("qrc:/UI/assets/steam.png","Steam","Gentle preparation", "qrc:/UI/MenuItemScreen/Menu3.qml");
     MenuItem item4("qrc:/UI/assets/meal.png","Meals","Assist programes", "qrc:/UI/MenuItemScreen/Menu4.qml");
     MenuItem item5("qrc:/UI/assets/favourite.png","Favorite","My watchlist", "qrc:/UI/MenuItemScreen/Menu5.qml");
     MenuItem item6("qrc:/UI/assets/cleaning.png","Cleaning","Deep cleaning", "qrc:/UI/MenuItemScreen/Menu6.qml");
-    MenuItem item7("qrc:/UI/assets/oven.png","Basic Setting","Basic setting", "qrc:/UI/MenuItemScreen/Menu7.qml");
+    MenuItem item7("qrc:/UI/assets/settings.png","Basic Setting","Basic setting", "qrc:/UI/MenuItemScreen/Menu7.qml");
     menuModel.append(item1);
     menuModel.append(item2);
     menuModel.append(item3);

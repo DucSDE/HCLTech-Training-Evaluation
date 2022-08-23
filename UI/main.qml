@@ -8,8 +8,10 @@ ApplicationWindow {
     id: root
     width: 1024
     height: 680
+    minimumWidth: 720
+    minimumHeight: 680
     visible: true
-    title: qsTr("Bosch Prenium")
+    title: AppName
     color: "black"
 
     ScreenController {
@@ -35,6 +37,7 @@ ApplicationWindow {
         height: root.height - statusBar.height
         width: root.width
         initialItem: "qrc:/UI/WelcomeScreen.qml"
+
     }
 
     Item {
