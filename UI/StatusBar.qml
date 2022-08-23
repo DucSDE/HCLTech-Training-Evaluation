@@ -1,4 +1,5 @@
-import QtQuick 2.0
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 import Bosch.Prenium 1.0
 
 Rectangle {
@@ -93,7 +94,19 @@ Rectangle {
                 verticalCenter: parent.verticalCenter
             }
             smooth: true
+            MouseArea {
+                anchors.fill: parent
+                onClicked: menu.popup()
+                acceptedButtons: Qt.LeftButton | Qt.RightButton
+            }
         }
 
+    }
+    Menu {
+        id: menu
+
+        MenuItem { text: "Cut" }
+        MenuItem { text: "Copy" }
+        MenuItem { text: "Paste" }
     }
 }
